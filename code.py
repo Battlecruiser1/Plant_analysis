@@ -2,7 +2,7 @@ import os
 from zipfile import ZipFile
 from google.colab import files
 
-environment = detect_notebook_environment()
+#environment = detect_notebook_environment()
 
 #!gdown --id 1Gqbq_xEOtmSBp9NUdwa6-UUiQKFMBsSD --output test_1.png
 
