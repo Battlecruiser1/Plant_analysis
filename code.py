@@ -2,23 +2,6 @@ import os
 from zipfile import ZipFile
 from google.colab import files
 
-# 노트북 환경 & 라이브러리 설치
-def detect_notebook_environment():
-    if 'COLAB_GPU' in os.environ:
-        print('Google Colaboratory detected.')
-        !pip install "altair>=5" ipympl plantcv --quiet
-        # 라이브러리 소스코드 오류 해결을 위한 변경
-        !sed -i '/if ksize <= 1:/,+1 s/^/    #/' /usr/local/lib/python3.10/dist-packages/plantcv/plantcv/dilate.py
-
-        # Matplotlib을 활용한 widget 기능 활성화
-        from google.colab import output
-        output.enable_custom_widget_manager()
-
-        # 현재 작업 폴더
-        !pwd
-    else:
-        print('Connect to GPU Runtime.')
-
 environment = detect_notebook_environment()
 
 #!gdown --id 1Gqbq_xEOtmSBp9NUdwa6-UUiQKFMBsSD --output test_1.png
